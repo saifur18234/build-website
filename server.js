@@ -15,7 +15,7 @@ const products = [
     name: 'Premium Headphones',
     price: 129.99,
     category: 'Electronics',
-    image: 'https://via.placeholder.com/300x300?text=Headphones',
+    image: 'images/project1.jpg',
     description: 'High-quality wireless headphones with noise cancellation',
     rating: 4.5,
     reviews: 128
@@ -25,7 +25,7 @@ const products = [
     name: 'Smart Watch',
     price: 199.99,
     category: 'Electronics',
-    image: 'https://via.placeholder.com/300x300?text=SmartWatch',
+    image: 'images/project2.jpg',
     description: 'Advanced smartwatch with health tracking',
     rating: 4.7,
     reviews: 95
@@ -35,7 +35,7 @@ const products = [
     name: 'Wireless Mouse',
     price: 49.99,
     category: 'Accessories',
-    image: 'https://via.placeholder.com/300x300?text=Mouse',
+    image: 'images/project3.jpg',
     description: 'Ergonomic wireless mouse with precision control',
     rating: 4.3,
     reviews: 234
@@ -45,7 +45,7 @@ const products = [
     name: 'USB-C Cable',
     price: 14.99,
     category: 'Accessories',
-    image: 'https://via.placeholder.com/300x300?text=USBCable',
+    image: 'assets/profile.png',
     description: 'Durable 6ft USB-C charging and data cable',
     rating: 4.2,
     reviews: 512
@@ -55,7 +55,7 @@ const products = [
     name: 'Mechanical Keyboard',
     price: 89.99,
     category: 'Peripherals',
-    image: 'https://via.placeholder.com/300x300?text=Keyboard',
+    image: 'assets/favicon.jpg',
     description: 'RGB mechanical keyboard for gaming and typing',
     rating: 4.6,
     reviews: 178
@@ -65,7 +65,7 @@ const products = [
     name: 'Monitor Stand',
     price: 34.99,
     category: 'Accessories',
-    image: 'https://via.placeholder.com/300x300?text=MonitorStand',
+    image: 'assets/profile.png',
     description: 'Adjustable monitor stand with storage',
     rating: 4.4,
     reviews: 89
