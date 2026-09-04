@@ -90,18 +90,18 @@ app.get('/api/products/:id', (req, res) => {
 app.get('/api/search', (req, res) => {
   const { q, category } = req.query;
   let results = products;
-  
+
   if (q) {
     results = results.filter(p =>
       p.name.toLowerCase().includes(q.toLowerCase()) ||
       p.description.toLowerCase().includes(q.toLowerCase())
     );
   }
-  
+
   if (category) {
     results = results.filter(p => p.category === category);
   }
-  
+
   res.json(results);
 });
 
@@ -121,11 +121,11 @@ app.get('/api/cart', (req, res) => {
 app.post('/api/cart', (req, res) => {
   const { productId, quantity } = req.body;
   const product = products.find(p => p.id === productId);
-  
+
   if (!product) return res.status(404).json({ message: 'Product not found' });
-  
+
   const existingItem = cart.find(item => item.id === productId);
-  
+
   if (existingItem) {
     existingItem.quantity += quantity;
   } else {
@@ -134,7 +134,7 @@ app.post('/api/cart', (req, res) => {
       quantity
     });
   }
-  
+
   res.json(cart);
 });
 
@@ -149,30 +149,30 @@ app.delete('/api/cart/:productId', (req, res) => {
 app.put('/api/cart/:productId', (req, res) => {
   const { quantity } = req.body;
   const item = cart.find(item => item.id === parseInt(req.params.productId));
-  
+
   if (!item) return res.status(404).json({ message: 'Item not in cart' });
-  
+
   if (quantity <= 0) {
     const index = cart.indexOf(item);
     cart.splice(index, 1);
   } else {
     item.quantity = quantity;
   }
-  
+
   res.json(cart);
 });
 
 // Checkout simulation
 app.post('/api/checkout', (req, res) => {
   const { email, address } = req.body;
-  
+
   if (!email || !address) {
     return res.status(400).json({ message: 'Email and address required' });
   }
-  
+
   const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const orderId = `ORD-${Date.now()}`;
-  
+
   const order = {
     orderId,
     email,
@@ -182,14 +182,22 @@ app.post('/api/checkout', (req, res) => {
     status: 'Pending',
     createdAt: new Date()
   };
-  
+
   // Clear cart after checkout
   cart.length = 0;
-  
+
   res.json(order);
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🛍️  E-Commerce Server running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`🛍️  E-Commerce Server running on http://localhost:${PORT}`);
+// }); //removed for vercel deployment
+
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+module.exports = app; // added for vercel deployment
