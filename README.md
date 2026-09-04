@@ -194,5 +194,10 @@ PORT=5000
 MD. Saifur Rahman
 
 - GitHub: [@saifur18234](https://github.com/saifur18234)
+<<<<<<< HEAD
 - Email: saifurrahman@gmail.com (Not Available)
 - Email: mdsaifurr182@gmail.com (Available)
+=======
+- Email: saifurrahman@gmail.com  (Not Available)
+- Email: mdsaifurr182@gmail.com  (Available)
+>>>>>>> 7e1fdf15e9d16cf324e60414f51b60ce81aec093

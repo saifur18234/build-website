@@ -203,6 +203,10 @@ function App() {
         <div className="hero-content">
           <h1>Welcome to TechStore</h1>
           <p>Discover premium tech products at unbeatable prices</p>
+          <div className="hero-visual">
+            <img src="images/project1.jpg" alt="Featured TechStore product display" />
+            <div className="hero-visual-caption">Handpicked gear for work, gaming, and everyday setup.</div>
+          </div>
         </div>
       </section>
 
