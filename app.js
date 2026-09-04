@@ -1,6 +1,6 @@
 const { useState, useEffect } = React;
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = '/api';
 
 // Product Card Component
 function ProductCard({ product, onAddToCart }) {
@@ -44,7 +44,7 @@ function ShoppingCart({ isOpen, onClose, cartItems, onRemove, onUpdateQuantity }
           <i className="fas fa-times"></i>
         </button>
       </div>
-      
+
       <div className="cart-items">
         {cartItems.length === 0 ? (
           <p className="empty-cart">Your cart is empty</p>
@@ -68,7 +68,7 @@ function ShoppingCart({ isOpen, onClose, cartItems, onRemove, onUpdateQuantity }
           ))
         )}
       </div>
-      
+
       {cartItems.length > 0 && (
         <div className="cart-footer">
           <div className="cart-total">
@@ -168,7 +168,7 @@ function App() {
 
   const filteredProducts = products.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         product.description.toLowerCase().includes(searchTerm.toLowerCase());
+      product.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = !selectedCategory || product.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
